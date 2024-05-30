@@ -33,14 +33,49 @@ const superLink = document.getElementById('super_link');
 console.log(superLink.outerHTML);
 // 2. Внутри всех элементов на странице, которые имеют класс "card-link", поменяйте текст внутри элемента на "ссылка".
 // []()
+
+const cardLinkElems = document.querySelectorAll('.card-link');
+cardLinkElems.forEach(element => {
+    element.textContent = 'ссылка';
+    console.log(element.outerHTML);
+});
+
+
 // 3. Найти все элементы на странице с классом "card-link", которые лежат в элементе с классом "card-body" и вывести полученную коллекцию в консоль.
 // []()
+
+const cardBody = document.querySelector('.card-body');
+const cardLinksInCardBody = cardBody.querySelectorAll('.card-link');
+console.dir(cardLinksInCardBody);
+
 // 4. Найти первый попавшийся элемент на странице у которого есть атрибут data-number со значением 50 и вывести его в консоль.
 // []()
+
+const dataNumber = document.querySelectorAll('[data-number="50"]')[0];
+console.log(dataNumber);
+
 // 5. Выведите содержимое тега title в консоль.
 // []()
+
+const titleElem = document.title;
+console.log(titleElem);
+
 // 6. Получите элемент с классом "card-title" и выведите его родительский узел в консоль.
 // []()
+
+const cardTitle = document.querySelector('.card-title');
+console.log(cardTitle.parentNode);
+// console.log(cardTitle.parentElement);
+
 // 7. Создайте тегp`, запишите внутри него текст "Привет" и добавьте созданный тег в начало элемента, который имеет класс "card".
 
+const paragrElem = document.createElement('p');
+paragrElem.textContent = 'Привет';
+const cardElem = document.querySelector('.card');
+// cardElem.appendChild(paragrElem);
+cardElem.insertBefore(paragrElem, cardElem.firstChild);
+
 // 8. Удалите тег h6 на странице.
+
+const h6ToRemove = document.querySelector('h6');
+h6ToRemove.remove();
