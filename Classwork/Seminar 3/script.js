@@ -1,25 +1,24 @@
 // Задание 1 (тайминг 15 минут)
 // В html создать кнопку button
-// После загрузки страницы вывести в консоль 
+// После загрузки страницы вывести в консоль
 // текст “страница загрузилась”
-// Добавить событие onclick которое выводит в консоль 
+// Добавить событие onclick которое выводит в консоль
 // текст “событие onclick”
 // Добавить событие addEventListener которое выводит
 //  в консоль текст “событие addEventListener”
 
-
-// const btnEl = document.createElement('button');
-// document.body.appendChild(btnEl);
-// btnEl.textContent = "button";
-// addEventListener('load', (event) => {
-//     console.log('Страница загрузилась');
+// const buttonEl = document.createElement('button');
+// buttonEl.textContent = "Кнопка";
+// document.body.appendChild(buttonEl);
+// window.onload = () => {
+//     console.log("Страница загрузилась");
+// }
+// buttonEl.onclick = function () {
+//     console.log("Событие onclick");
+// }
+// buttonEl.addEventListener('click', (event) => {
+//     console.log("Событие addEventListener");
 // });
-// btnEl.onclick = function () {
-//     console.log('Событие onclick');
-// };
-// btnEl.addEventListener('click', function (event) {
-//     console.log('coбытие addEventListener');
-// })
 
 // Задание 2(тайминг 30 минут)
 // Создать в html три кнопки button с нумерацией(1, 2, 3 соответственно)
@@ -30,69 +29,72 @@
 // Создать кнопку button с текстом 5, При клике на которую,
 // меняется текст данной кнопки на “Вы нажали на эту кнопку”
 
-
-// const btnEls = document.createElement('div');
-// const btnEl1 = document.createElement('button');
-// btnEl1.textContent = "1";
-// const btnEl2 = document.createElement('button');
-// btnEl2.textContent = "2";
-// const btnEl3 = document.createElement('button');
-// btnEl3.textContent = "3";
-// document.body.appendChild(btnEls);
-// btnEls.append(btnEl1, btnEl2, btnEl3);
-// btnEls.addEventListener('click', (e) => {
-//     console.log(e.target);
-// })
-// btnEl4 = document.createElement('button');
-// btnEl4.textContent = "4";
+// const bodyEl = document.querySelector('body');
+// for (let i = 1; i < 4; i++) {
+//     bodyEl.insertAdjacentHTML('beforeend', `<button>Кнопка ${i}</button>`);
+// }
+// const buttonElems = document.querySelectorAll('button');
+// buttonElems.forEach(element => {
+//     // element.onclick = () => {
+//     //     console.log(element);
+//     // }
+//     element.addEventListener('click', (event) => {
+//         console.log(event.target);
+//     });
+// });
+// const buttonEl4 = document.createElement('button');
+// buttonEl4.textContent = "Кнопка 4";
+// bodyEl.appendChild(buttonEl4);
 // let counter = 0;
-// btnEl3.after(btnEl4);
-// btnEl4.addEventListener('click', function (e) {
+// buttonEl4.addEventListener('click', () => {
 //     counter++;
 //     console.log(`Раз нажато на кнопку: ${counter}`);
 // });
-// btnEl5 = document.createElement('button');
-// btnEl5.textContent = "5";
-// btnEl4.after(btnEl5);
-// btnEl5.addEventListener('click', () => {
-//     btnEl5.textContent = "Вы нажали на эту кнопку";
-// })
+// const buttonEl5 = document.createElement('button');
+// buttonEl5.textContent = "Кнопка 5";
+// bodyEl.appendChild(buttonEl5);
+// buttonEl5.addEventListener('click', function () {
+//     buttonEl5.textContent = 'Вы нажали на эту кнопку';
+// });
 
 
 // Задание 3(тайминг 30 минут)
-// Создать кнопку, которая добавляем заголовок h1 с текстом, 
+// Создать кнопку, которая добавляем заголовок h1 с текстом,
 // “Новый заголовок, данный элемент нужно расположить после кнопки
 // Создать вторую кнопку, которая будет удалять созданный заголовок h1
-// Создать третью кнопку, при наведении на которую в консоль будет 
-// выводиться текст “вы навели на данную кнопку” , 
-// как только вы убираем курсор мыши с кнопки, в консоли должен появиться текст 
+// Создать третью кнопку, при наведении на которую в консоль будет
+// выводиться текст “вы навели на данную кнопку” ,
+// как только вы убираем курсор мыши с кнопки, в консоли должен появиться текст
 // “Наведения на кнопку больше нет”
 
-// const buttonAddh1 = document.createElement('button');
-// buttonAddh1.textContent = "Добавь h1";
-// document.body.append(buttonAddh1);
-// const h1El = document.createElement('h1');
-// h1El.textContent = "Новый заголовок";
+// const bodyEl = document.querySelector('body');
+// const buttonH1Elem = document.createElement('button');
+// buttonH1Elem.textContent = "Добавь h1";
+// bodyEl.insertAdjacentElement('beforeend', buttonH1Elem);
 
-// buttonAddh1.onclick = () => {
-//     buttonAddh1.after(h1El);
-// }
-
-// const buttonDeleteH1 = document.createElement('button');
-// buttonDeleteH1.textContent = "Удалить h1";
-// document.body.append(buttonDeleteH1);
-// buttonDeleteH1.onclick = function () {
-//     h1El.remove();
-// }
+// buttonH1Elem.addEventListener('click', function () {
+//     // bodyEl.appendChild(h1Elem);
+//     const h1Elem = document.createElement('h1');
+//     h1Elem.textContent = 'Новый заголовок';
+//     buttonH1Elem.after(h1Elem);
+// });
+// const buttonRemoveH1 = document.createElement('button');
+// buttonRemoveH1.textContent = "Удалить h1";
+// bodyEl.appendChild(buttonRemoveH1);
+// buttonRemoveH1.addEventListener('click', () => {
+//     document.querySelector('h1').remove();
+// });
 // const buttonPointAtMe = document.createElement('button');
-// buttonPointAtMe.textContent = "наведи на меня";
-// document.body.append(buttonPointAtMe);
-// buttonPointAtMe.addEventListener('mouseenter', (e) => {
+// buttonPointAtMe.textContent = "Наведи на меня";
+// bodyEl.appendChild(buttonPointAtMe);
+// buttonPointAtMe.addEventListener('mouseenter', () => {
 //     console.log("Вы навели на данную кнопку");
-// })
-// buttonPointAtMe.addEventListener('mouseleave', (e) => {
-//     console.log("Наведения на кнопку больше нет");
-// })
+// });
+// buttonPointAtMe.addEventListener('mouseout', function () {
+//     console.log("Вы убрали курсор с кнопки");
+// });
+
+
 
 // Задание 4 (тайминг 30 минут)
 // Создать в html список состоящий из 3 - х произвольных элементов li
@@ -100,34 +102,34 @@
 // Создать кнопку, которая будет удалять первый элемент из созданного списка
 // Создать кнопку, при клике на которую ей добавляется класс “click”
 
+// const bodyEl = document.querySelector('body');
 // const ulElem = document.createElement('ul');
 // const liElem1 = document.createElement('li');
 // const liElem2 = document.createElement('li');
 // const liElem3 = document.createElement('li');
-// liElem1.textContent = 'li elem1';
-// liElem2.textContent = 'li elem';
-// liElem3.textContent = 'li elem';
-// document.body.append(ulElem);
+
+// liElem1.textContent = "Элемент1";
+// liElem2.textContent = "Элемент2";
+// liElem3.textContent = "Элемент3";
+// bodyEl.appendChild(ulElem);
 // ulElem.append(liElem1, liElem2, liElem3);
-// const buttonAddingElem = document.createElement('button');
-// buttonAddingElem.textContent = 'Добавить элемент';
-// document.body.append(buttonAddingElem);
-// buttonAddingElem.addEventListener('click', () => {
-//     const newLiElem = document.createElement('li');
-//     newLiElem.textContent = "Новый элемент списка";
-//     ulElem.appendChild(newLiElem)
+// const buttonAddElem = document.createElement('button');
+// buttonAddElem.textContent = "Добавить элемент";
+// bodyEl.after(buttonAddElem);
+// buttonAddElem.addEventListener('click', () => {
+//     ulElem.insertAdjacentHTML('beforeend', '<li>Новый элемент списка</li>');
 // });
-// const buttonRemovingElem = document.createElement('button');
-// buttonRemovingElem.textContent = 'Удалить элемент';
-// document.body.append(buttonRemovingElem);
-// buttonRemovingElem.addEventListener('click', () => {
-//     ulElem.removeChild(ulElem.firstElementChild);
+// const buttonRemoveFirstElem = document.createElement('button');
+// buttonRemoveFirstElem.textContent = "Удалить первый элемент";
+// buttonAddElem.after(buttonRemoveFirstElem);
+// buttonRemoveFirstElem.addEventListener('click', function () {
+//     ulElem.firstChild.remove();
 // });
 // const buttonAddClass = document.createElement('button');
-// buttonAddClass.textContent = 'Добавить класс';
-// document.body.append(buttonAddClass);
+// buttonAddClass.textContent = "Добавь класс";
+// buttonRemoveFirstElem.after(buttonAddClass);
 // buttonAddClass.addEventListener('click', () => {
-//     buttonAddClass.setAttribute('class', 'click');
+//     buttonAddClass.classList.add('click');
 // });
 
 // Задание 4 (тайминг 20 минут)
@@ -135,30 +137,5 @@
 // Создайте с помощью javascript новый элемент button
 // Добавьте текст для кнопки “Отправить”
 // При клике на данную кнопку необходимо чтобы текст поменялся на “Текст отправлен”
-
-const divContent = document.createElement('div')
-divContent.setAttribute('class', 'content');
-document.body.append(divContent);
-const buttonSend = document.createElement('button');
-buttonSend.textContent = 'отправить';
-divContent.append(buttonSend);
-buttonSend.onclick = () => {
-    buttonSend.textContent = "Текст отправлен";
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
