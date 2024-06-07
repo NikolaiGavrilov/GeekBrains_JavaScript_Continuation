@@ -138,4 +138,12 @@
 // Добавьте текст для кнопки “Отправить”
 // При клике на данную кнопку необходимо чтобы текст поменялся на “Текст отправлен”
 
-
+// const divContent = document.createElement('div')
+// divContent.setAttribute('class', 'content');
+// document.body.append(divContent);
+// const buttonSend = document.createElement('button');
+// buttonSend.textContent = 'отправить';
+// divContent.append(buttonSend);
+// buttonSend.onclick = () => {
+//     buttonSend.textContent = "Текст отправлен";
+// }
